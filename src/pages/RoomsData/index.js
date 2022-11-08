@@ -3,93 +3,46 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Button, Image } fr
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
 
 
-export default function InsureDate() {
+export default function RoomsData() {
 
     const navigation = useNavigation();
     const [genero, setGenero] = useState("");
+    const [selected, setSelected] = React.useState("");
     return (
+
+
+
         <View style={styles.container}>
-            <Animatable.View animation="fadeInLeft" delay={800} style={styles.container.Header}>
-                {/*-Authentication Default*/}
-                <Text sytle={{ marginLeft: 19 }}>    Full name *</Text>
-                <View id="default" style={styles.inputArea}>
-
-                    <TouchableOpacity style={styles.buttonDefault}>
-                        <TextInput
-                            placeholder="Ex: John Miller" />
-                    </TouchableOpacity>
-                </View>
 
 
-                <View style={styles.container} id="default" >
-                    <Text>Treatment Pronoun *</Text>
+            <Image style={{ marginLeft: 52, marginRight: 54, flex: -3, Witdh: 30 }}
+                source={require('../../assets/menuNumber2.png')} />
 
-                    <View style={styles.wrapper}>
-                        {['Mr.', 'Mrs.', 'Miss.', 'Master', 'Doctor', 'Pho'].map(grindr => (
-                            <View key={grindr} style={styles.Genero}>
-                                <Text style={styles.grindr}>{grindr}</Text>
-                                <TouchableOpacity
-                                    style={styles.sex}
-                                    onPress={() => setGenero(grindr)}>
-                                    {genero === grindr && <View style={styles.inner} />}
-                                </TouchableOpacity>
-                            </View>
-                        ))}
-
-                        <Text sytle={{ marginLeft: 19 }}>    Phone Number *</Text>
-                        <View id="default" style={styles.inputArea}>
-
-                            <TouchableOpacity style={styles.buttonDefault}>
-                                <TextInput keyboardType = 'numeric'
-                                    placeholder="Ex: +1 (000) 000 0000" />
-                            </TouchableOpacity>
-                        </View>
-
-
-                        <Text sytle={{ marginLeft: 19 }}>    Profile picture : </Text>
-                     
-                        
-                        <View>
-                            <TouchableOpacity>
-
-                            <Image source={require('../../assets/iconAddPhoto.png')} style={{marginLeft: 138 }}/>
-               
-                            </TouchableOpacity>
-                        </View>
-
-
-                    </View>
-                </View>
-
-            </Animatable.View>
+            <View id="default">
+                <Text sytle={styles.titleMenu}>
+                    Rooms registration
+                    </Text>
 
 
 
             <TouchableOpacity
-                style={styles.Loginbutton}
+                style={styles.Nextbutton}
                 onPress={() => navigation.navigate('Home')}>
-                <Text style={styles.buttonLogin}>SEND</Text>
+                <Text style={styles.buttonNext}>NEXT</Text>
             </TouchableOpacity>
 
-            
             <TouchableOpacity
-                style={styles.Cancelbutton}
-                onPress={() => navigation.navigate('FAQ')}>
-
-                <Text style={styles.buttonCancel}>CANCEL</Text>
+                style={styles.Backbutton}
+                onPress={() => navigation.navigate('PropertyData')}>
+                <Text style={styles.buttonBack}>Back</Text>
             </TouchableOpacity>
 
 
-
-
-
-
-
+            </View>
         </View>
     );
 }
@@ -122,10 +75,10 @@ const styles = StyleSheet.create({
 
     inputArea: {
         flexDirection: 'row',
-        width:'90%',
-        height:760,
+        width: '90%',
+        height: 760,
         backgroundColor: '#EEEEEE',
-        borderColor:'#EEEEEE',
+        borderColor: '#EEEEEE',
         borderRadius: 18,
         marginBottom: 10,
         height: 50,
@@ -168,7 +121,7 @@ const styles = StyleSheet.create({
     },
 
 
-    buttonLogin: {
+    buttonNext: {
 
         backgroundColor: '#0074FC',
         borderColor: 'rgba(0, 0, 0, 1)',
@@ -185,8 +138,8 @@ const styles = StyleSheet.create({
         bottom: -50
     },
 
-    
-    Cancelbutton:{ 
+
+    Backbutton: {
 
         backgroundColor: '#ffffff',
         borderColor: '#ffffff',
@@ -196,33 +149,29 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         paddingVertical: 10,
         fontSize: 20,
-        marginTop: -50,
+        top: 120,
+        marginRight: 250,
         marginRight: 250,
         marginBottom: 4,
         alignItems: 'center',
-      
-
-
-    },
-
-
-    buttonCancel:{
-
-        color: 'black',
-        borderColor: '#BFDCFF'
-
+        left: 50,
+       
     
 
 
-        
-        
     },
 
-    Redefinebutton: {
-        textAlign: 'center',
-        color: '#0074FC',
+
+    buttonBack: {
+
+        color: 'black',
+        borderColor: '#BFDCFF',
+        borderRadius: 20,
+
 
     },
+
+
 
     containerForm: {
         color: '#000000'
@@ -238,7 +187,9 @@ const styles = StyleSheet.create({
     buttonAccount: {
         textAlign: 'center',
         color: '#0074FC',
-        marginTop: 10
+        marginTop: 10,
+
+
     },
     sex: {
 
@@ -248,7 +199,8 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         justifyContent: 'center',
         alignItems: 'center',
-        top:-1,
+        top: -1
+
     },
 
     inner: {
@@ -258,42 +210,37 @@ const styles = StyleSheet.create({
         backgroundColor: 'black',
         borderRadius: 10,
 
+
     },
     wrapper: {
         flexDirection: 'column',
-        ustifyContent: 'left',
         marginTop: 10,
 
+
+
+
     },
 
-    Genero: {
-        marginHorizontal: 15,
-    },
 
-    SexGenero: {
-        fontSize: 22,
-        textTransform: 'capitalize'
-    },
+    buttonAddProfile: {
 
-    buttonAddProfile:{
-
-        borderWidth:1,
-        width:213,
+        borderWidth: 1,
+        width: 213,
         height: 130,
-        Top:70,
-        left:130,
+        Top: 70,
+        left: 130,
         backgroundColor: 'white',
-        borderColor:'black',
+        borderColor: 'black',
         borderRadius: 18,
         marginBottom: -45,
         alignItems: 'center'
-        
-        
+
+
 
 
     },
 
-    AddProfilebutton:{
+    AddProfilebutton: {
 
         marginLeft: 5,
         height: 50,
@@ -302,13 +249,23 @@ const styles = StyleSheet.create({
         fontSize: 18,
         borderColor: 'rgba(0, 0, 0, 1)',
         borderRadius: 70,
-       top:50
+        top: 50
 
 
-    }
+    },
+
+
+    IconMenu: {
+
+        marginLeft: 30
+    },
+
+    titleMenu:{
+
+fontWeight:'bold',
 
 
 
-    
+    },
 
 })

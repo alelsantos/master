@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity, Button, TextInput } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { CurrentRenderContext, NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
+
 
 import * as Animatable from 'react-native-animatable';
 import { useNavigation } from '@react-navigation/native';
@@ -15,34 +16,33 @@ export default function Welcome() {
 
     return (
         <View style={styles.container}>
- <Image source={require('../../assets/Logo.png')}  style={{marginLeft:16}} />
             <Text style={styles.buttonLoginWith}> Login with</Text>
             {/*-Authentication Default*/}
             <View id="default" style={styles.inputArea}>
-            <Image source={require('../../assets/icon.png')}  style={{marginLeft:16}} />
+                <Image source={require('../../assets/icon.png')} style={{ marginLeft: 16 }} />
                 <TextInput
                     style={styles.Defaultbutton}
-                 placeholder="Email"
-                  
+                    placeholder="Email"
+
                 />
-                <TouchableOpacity   style={styles.buttonIconeye} onPress={ () => setHidePass(!hidePass) }>
-                   
+                <TouchableOpacity style={styles.buttonIconeye} onPress={() => setHidePass(!hidePass)}>
+
                 </TouchableOpacity>
             </View>
 
 
             <View id="default" style={styles.inputArea}>
-            <Image source={require('../../assets/iconlock.png')} style={{marginLeft:16}} />
+                <Image source={require('../../assets/iconlock.png')} style={{ marginLeft: 16 }} />
                 <TextInput
                     style={styles.Defaultbutton}
-                    
-                 placeholder="Password"
+
+                    placeholder="Password"
                     value={input}
-                    onChangeText={ (text) => setInput(text) }
+                    onChangeText={(text) => setInput(text)}
                     secureTextEntry={hidePass}
                 />
-                <TouchableOpacity style={styles.buttonIconeye} onPress={ () => setHidePass(!hidePass) }>
-                    
+                <TouchableOpacity style={styles.buttonIconeye} onPress={() => setHidePass(!hidePass)}>
+
                     {hidePass ?
                         <Ionicons name="eye" size={25} color="black" />
                         :
@@ -65,17 +65,17 @@ export default function Welcome() {
                 </TouchableOpacity>
             </View>
 
-<View style={styles.buttonOr}>
-            <Text id="or">
-                <Text style={styles.buttonOr} >____________ or ____________</Text>
-            </Text>
+            <View style={styles.buttonOr}>
+                <Text id="or">
+                    <Text style={styles.buttonOr} >____________ or ____________</Text>
+                </Text>
             </View>
 
             {/*-Authentication Apple*/}
             <View id="apple" style={styles.containerForm}>
-                <TouchableOpacity style={styles.buttonSocial} id="idApple" onPress={() => navigation.navigate('SignIn')}>
+                <TouchableOpacity style={styles.buttonSocial} id="idApple" onPress={() => navigation.navigate('FAQ')}>
                     <Image source={require('../../assets/iconApple.png')} />
-                    <TextInput placeholder="  Logging with Apple" />
+                    <Text style={styles.Socialbutton}>Logging with Apple</Text>
                 </TouchableOpacity>
 
 
@@ -86,8 +86,10 @@ export default function Welcome() {
                 <TouchableOpacity style={styles.buttonSocial} id="idGoogle"
                     placeholder="Email or user" placeholderTextColor={'blue'} onPress={() => navigation.navigate('SignIn')}>
                     <Image source={require('../../assets/iconGoogle.png')} />
-                    <TextInput placeholder="  Logging with Google" />
+                    <Text style={styles.Socialbutton}>Logging with Google</Text>
                 </TouchableOpacity>
+
+
             </View>
 
 
@@ -96,7 +98,7 @@ export default function Welcome() {
                 <TouchableOpacity style={styles.buttonSocial} id="idFace"
                     placeholder="Email or user" placeholderTextColor={'blue'} onPress={() => navigation.navigate('SignIn')}>
                     <Image source={require('../../assets/iconFacebook.png')} />
-                    <TextInput placeholder="  Logging with Facebook" />
+                    <Text style={styles.Socialbutton}>Logging with Facebook</Text>
                 </TouchableOpacity>
             </View>
 
@@ -107,7 +109,7 @@ export default function Welcome() {
                 <TouchableOpacity style={styles.buttonSocial} id="idFace"
                     placeholderTextColor={'blue'} onPress={() => navigation.navigate('SignIn')}>
                     <Image source={require('../../assets/iconTwitter.png')} />
-                    <TextInput placeholder="  Logging with Twitter" />
+                    <Text style={styles.Socialbutton}>Logging with Twitter</Text>
                 </TouchableOpacity>
             </View>
 
@@ -117,7 +119,22 @@ export default function Welcome() {
                 onPress={() => navigation.navigate('CreateAccount')}>
                 <Text style={styles.buttonAccount}>Create an account</Text>
             </TouchableOpacity>
+
+
+
+
+            
+
+
         </View>
+
+
+
+
+
+
+
+
 
 
 
@@ -150,6 +167,21 @@ const styles = StyleSheet.create({
 
     },
 
+    Socialbutton: {
+
+        marginRight: -5,
+        marginTop: 8,
+        left: 8,
+        Color: '#00000080',
+
+        frontSize: 23,
+        flex: -14
+
+
+
+    },
+
+
     inputArea: {
         flexDirection: 'row',
         width: '90%',
@@ -172,10 +204,10 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
 
-    
+
     buttonIcon: {
-       
-        
+
+
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#ffffff',
@@ -190,7 +222,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#ffffff',
         borderRadius: 17,
-        marginLeft:-11
+        marginLeft: -11
 
     },
 
@@ -208,7 +240,8 @@ const styles = StyleSheet.create({
         marginBottom: 4,
         paddingBottom: 14,
         marginLeft: 20,
-        justifyContent: 'center'
+        justifyContent: 'center',
+
 
     },
 
@@ -225,7 +258,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginTop: 10,
         marginLeft: 20,
-        
         fontWeight: "bold"
     },
 
@@ -251,21 +283,21 @@ const styles = StyleSheet.create({
 
     buttonOr: {
         fontWeight: "bold",
-        fontSize:25,
+        fontSize: 25,
         flexDirection: 'row',
         textAlign: 'center',
         lineHeight: 40,
         lineSize: 23,
         color: '#000000'
-       
+
     },
 
 
     buttonLoginWith: {
         fontWeight: "bold",
-        fontSize:28,
+        fontSize: 28,
         flexDirection: 'row',
-        marginTop:10,
+        marginTop: 10,
         textAlign: 'center',
         lineHeight: 40,
         lineSize: 23,
@@ -275,10 +307,10 @@ const styles = StyleSheet.create({
     buttonAccount: {
         fontWeight: "bold",
         textAlign: 'center',
-        justifyContent:'center',
+        justifyContent: 'center',
         color: '#0074FC',
         marginTop: 10,
-        marginLeft:45
+        marginLeft: 45
     }
 
 })

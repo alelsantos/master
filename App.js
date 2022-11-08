@@ -11,7 +11,7 @@ import TabScreen from "./src/pages/TabScreen";
 export default function App() {
   return(
 <NavigationContainer>
-  <TabScreen/>
+  <Routes/>
   
   
   

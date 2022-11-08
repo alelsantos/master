@@ -16,22 +16,28 @@ export default function FAQ() {
     return (
         <View style={styles.container}>
 
-            
+
             <Text style={styles.buttontitle} >Contact us</Text>
-            <Text style={styles.buttonbar}
-            >_____________________________________________________</Text>
+            <Text style={{ opacity: 0.15 }}>_____________________________________________________</Text>
 
-            <Text style={styles.Defaultbutton}>Talk to an assistant</Text>
-            <Text >+1 (000) 000-0000</Text>
+            <Text style={styles.titlebutton1}>Talk to an assistant</Text>
 
-            <Text style={{ opacity:0.10}}  >_____________________________________________________</Text>
 
-            <Text>Send message</Text>
-            <Text >ian@outlook.com</Text>
+            <Text style={styles.titlebutton}>+1 (000) 000-0000</Text>
+            <Text style={{ opacity: 0.15, bottom: -15 }}>_____________________________________________________</Text>
+            <Image style={styles.buttonIcon1} source={require('../../assets/telefone.png')} />
 
- 
-            <Text style={{ opacity:0.10}} >_____________________________________________________</Text>
-        </View >
+           
+<View  style={{ bottom:-20}}>
+            <Text style={styles.titlebutton1}>Send message</Text>
+            <Text style={styles.titlebutton}>ian@outlook.com</Text>
+          <Text style={{ opacity: 0.15, bottom: -15 }}>_____________________________________________________</Text>
+       </View>
+            <Image style={styles.buttonIcon} source={require('../../assets/mensagem.png')} />
+
+
+
+            </View>
 
     );
 }
@@ -73,36 +79,30 @@ const styles = StyleSheet.create({
     Defaultbutton: {
 
         width: '85%',
-        marginLeft:85,
-        marginTop:-500,
+        marginLeft: 85,
+        marginTop: -500,
         height: 50,
         padding: 7,
         fontSize: 20,
-        backgroundColor:"#EEEEEE",
-        borderColor:'#EEEEEE'
+        borderColor: '#EEEEEE'
     },
 
 
     buttonIcon: {
-
-
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#ffffff',
-        borderRadius: 17
+        
+        marginTop: -32,
+        marginLeft: 40,
 
     },
 
-    buttonIconeye: {
-        width: '15%',
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#ffffff',
-        borderRadius: 17,
-        marginLeft: -11
+    
+    buttonIcon1: {
+        
+        marginTop: -41,
+        marginLeft: 40
 
     },
+
 
     buttonSocial: {
 
@@ -142,10 +142,11 @@ const styles = StyleSheet.create({
     Ionicons: {
 
         width: '15%',
-        height: 50,
+        height: 150,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#FF0000'
+        backgroundColor: '#FF0000',
+        top: 50
 
     },
 
@@ -158,9 +159,6 @@ const styles = StyleSheet.create({
     containerForm: {
         color: '#000000'
     },
-
-
-
 
     buttonLoginWith: {
         fontWeight: "bold",
@@ -183,21 +181,20 @@ const styles = StyleSheet.create({
     },
 
 
-    buttonbar:{
+    buttonbar: {
 
         opacity: 0.15,
         color: ' #D9D9D9 ',
         height: 550,
         width: 390,
         left: 0,
-        top: 0,
-        right:30,
+        top: 0
 
     },
 
 
-    
-    buttonbar2:{
+
+    buttonbar2: {
 
         opacity: 0.15,
         color: ' #D9D9D9 ',
@@ -205,19 +202,39 @@ const styles = StyleSheet.create({
         width: 390,
         left: 38,
         top: 437,
-        right:30,
+        right: 30,
 
     },
 
+    titlebutton1: {
 
-    buttontitle:{
+        bottom: -15,
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginLeft: 85
 
-       bottom: -15,
-       fontSize: 24,
-       fontWeight:'bold',
-       marginLeft: 38
+    },
+
+    buttontitle: {
+        width: '85%',
+        bottom: -15,
+        fontSize: 24,
+        top: 12,
+        left: 36,
+        fontWeight: 'bold'
+
+
+
+    },
+
+    titlebutton: {
+
+        bottom: -15,
+        fontSize: 24,
+        marginLeft: 85
+
 
     }
-    
+
 
 })

@@ -11,13 +11,17 @@ import CreateAccount from '../pages/CreateAccount';
 import Home from '../pages/Home';
 import FAQ from '../pages/FAQ'
 import Solicitation from '../pages/Solicitation'
+import PropertyData from '../pages/PropertyData';
+import TabScreen from '../pages/TabScreen';
+import RoomsData from '../pages/RoomsData';
 
 
-
-
+const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
 export default function Routes() {
     return (
+
 
 
 
@@ -60,7 +64,7 @@ export default function Routes() {
             <Stack.Screen style={styles.menu}
                 name="Home"
                 component={Home}
-               
+                options={{ headerShown: false }}
             />
 
 
@@ -68,19 +72,35 @@ export default function Routes() {
             <Stack.Screen style={styles.menu}
                 name="InsureDate"
                 component={InsureDate}
-                
+
             />
 
 
+            <Stack.Screen style={styles.menu}
+                name="RoomsData"
+                component={RoomsData}
 
+            />
 
+            <Stack.Screen style={styles.menu}
+                name="PropertyData"
+                component={PropertyData}
 
+            />
 
 
             {/*  <Stack.Screen style={styles.menu}
                 name="Solicitation"
                 component={Solicitation}
             />  */}
+
+
+            <Tab.Screen style={styles.menu}
+                name="PropeTabScreenrtyData"
+                component={TabScreen}
+
+            />
+
 
 
 
@@ -96,6 +116,10 @@ export default function Routes() {
 const styles = StyleSheet.create({
 
     container: {
+
+        textAlign: 'center'
+
+
 
     },
 
